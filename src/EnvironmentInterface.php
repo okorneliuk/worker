@@ -12,6 +12,7 @@ use Spiral\RoadRunner\Environment\Mode;
  *
  * @psalm-import-type ModeType from Mode
  * @see Mode
+ * @method string getVersion()
  */
 interface EnvironmentInterface
 {

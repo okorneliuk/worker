@@ -9,9 +9,10 @@ use Spiral\RoadRunner\Environment\Mode;
 /**
  * @psalm-import-type ModeType from Mode
  * @psalm-type EnvironmentVariables = array{
- *      RR_MODE?:   ModeType|string,
- *      RR_RELAY?:  string,
- *      RR_RPC?:    string,
+ *      RR_MODE?:    ModeType|string,
+ *      RR_RELAY?:   string,
+ *      RR_RPC?:     string,
+ *      RR_VERSION?: string,
  * }|array<string, string>
  * @see Mode
  */
@@ -27,7 +28,7 @@ class Environment implements EnvironmentInterface
 
     public function getMode(): string
     {
-        return $this->get('RR_MODE', '');
+        return $this->get('RR_MODE');
     }
 
     public function getRelayAddress(): string
@@ -38,6 +39,11 @@ class Environment implements EnvironmentInterface
     public function getRPCAddress(): string
     {
         return $this->get('RR_RPC', 'tcp://127.0.0.1:6001');
+    }
+
+    public function getVersion(): string
+    {
+        return $this->get('RR_VERSION');
     }
 
     /**
